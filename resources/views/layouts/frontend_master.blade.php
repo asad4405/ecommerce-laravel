@@ -11,7 +11,7 @@
     <link rel="apple-touch-icon" href="{{ asset('frontend_assets') }}/img/icon.png">
 
     <!-- Title -->
-    <title>Airi - Clean, Minimal eCommerce Bootstrap 5 Template</title>
+    <title>Airi - Clean, Minimal || eCommerce</title>
 
     <!-- ************************* CSS Files ************************* -->
 
@@ -36,10 +36,6 @@
     <!-- modernizr JS
     ============================================ -->
     <script src="{{ asset('frontend_assets') }}/js/vendor/modernizr-2.8.3.min.js"></script>
-    <!--[if lt IE 9]>
-    <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 
 <body>
@@ -143,7 +139,8 @@
                                         <img src="{{ asset('frontend_assets') }}/img/logo/logo.svg" alt="Logo" />
                                     </figure>
                                     <figure class="logo--transparency">
-                                        <img src="{{ asset('frontend_assets') }}/img/logo/logo-white.png" alt="Logo" />
+                                        <img src="{{ asset('frontend_assets') }}/img/logo/logo-white.png"
+                                            alt="Logo" />
                                     </figure>
                                 </a>
                                 <!-- Logo End Here -->
@@ -161,9 +158,15 @@
                                             <i class="fa fa-user-circle-o"></i>
                                         </a>
                                         <ul class="user-info-menu">
+                                            @auth
                                             <li>
-                                                <a href="my-account.html">My Account</a>
+                                                <a href="{{ route('dashboard') }}">My Account</a>
                                             </li>
+                                            @else
+                                                <li>
+                                                    <a href="{{ route('login') }}">Login/Register</a>
+                                                </li>
+                                            @endauth
                                             <li>
                                                 <a href="cart.html">Shopping Cart</a>
                                             </li>
@@ -690,7 +693,8 @@
                         <div class="col-lg-3 col-md-8 mb-md--30">
                             <div class="footer-widget">
                                 <div class="textwidget">
-                                    <img src="{{ asset('frontend_assets') }}/img/logo/logo-white.png" alt="Logo" class="mb--10">
+                                    <img src="{{ asset('frontend_assets') }}/img/logo/logo-white.png" alt="Logo"
+                                        class="mb--10">
                                     <p class="font-size-16 font-2 mb--20">Integer ut ligula quis lectus fringilla
                                         elementum porttitor sed est. Duis fringilla efficitur ligula sed lobortis.</p>
                                     <!-- Social Icons Start Here -->
@@ -937,7 +941,8 @@
                                     <i class="dl-icon-close"></i>
                                 </a>
                                 <div class="mini-cart__product__image">
-                                    <img src="{{ asset('frontend_assets') }}/img/products/prod-17-1-70x91.jpg" alt="products">
+                                    <img src="{{ asset('frontend_assets') }}/img/products/prod-17-1-70x91.jpg"
+                                        alt="products">
                                 </div>
                                 <div class="mini-cart__product__content">
                                     <a class="mini-cart__product__title" href="product-details.html">Chain print
@@ -951,7 +956,8 @@
                                     <i class="dl-icon-close"></i>
                                 </a>
                                 <div class="mini-cart__product__image">
-                                    <img src="{{ asset('frontend_assets') }}/img/products/prod-18-1-70x91.jpg" alt="products">
+                                    <img src="{{ asset('frontend_assets') }}/img/products/prod-18-1-70x91.jpg"
+                                        alt="products">
                                 </div>
                                 <div class="mini-cart__product__content">
                                     <a class="mini-cart__product__title" href="product-details.html">Waxed-effect
@@ -964,7 +970,8 @@
                                     <i class="dl-icon-close"></i>
                                 </a>
                                 <div class="mini-cart__product__image">
-                                    <img src="{{ asset('frontend_assets') }}/img/products/prod-19-1-70x91.jpg" alt="products">
+                                    <img src="{{ asset('frontend_assets') }}/img/products/prod-19-1-70x91.jpg"
+                                        alt="products">
                                 </div>
                                 <div class="mini-cart__product__content">
                                     <a class="mini-cart__product__title" href="product-details.html">Waxed-effect
@@ -977,7 +984,8 @@
                                     <i class="dl-icon-close"></i>
                                 </a>
                                 <div class="mini-cart__product__image">
-                                    <img src="{{ asset('frontend_assets') }}/img/products/prod-2-1-70x91.jpg" alt="products">
+                                    <img src="{{ asset('frontend_assets') }}/img/products/prod-2-1-70x91.jpg"
+                                        alt="products">
                                 </div>
                                 <div class="mini-cart__product__content">
                                     <a class="mini-cart__product__title" href="product-details.html">Waxed-effect
@@ -1005,8 +1013,7 @@
         <!-- Global Overlay End -->
 
         <!-- Modal Start -->
-        <div class="modal fade product-modal" id="productModal" tabindex="-1" role="dialog"
-            aria-hidden="true">
+        <div class="modal fade product-modal" id="productModal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
@@ -1028,8 +1035,8 @@
                                     <div class="product-image">
                                         <div class="product-image--holder">
                                             <a href="product-details.html">
-                                                <img src="{{ asset('frontend_assets') }}/img/products/prod-9-1.jpg" alt="Product Image"
-                                                    class="primary-image">
+                                                <img src="{{ asset('frontend_assets') }}/img/products/prod-9-1.jpg"
+                                                    alt="Product Image" class="primary-image">
                                             </a>
                                         </div>
                                         <span class="product-badge sale">sale</span>
@@ -1037,8 +1044,8 @@
                                     <div class="product-image">
                                         <div class="product-image--holder">
                                             <a href="product-details.html">
-                                                <img src="{{ asset('frontend_assets') }}/img/products/prod-10-1.jpg" alt="Product Image"
-                                                    class="primary-image">
+                                                <img src="{{ asset('frontend_assets') }}/img/products/prod-10-1.jpg"
+                                                    alt="Product Image" class="primary-image">
                                             </a>
                                         </div>
                                         <span class="product-badge new">new</span>
@@ -1046,8 +1053,8 @@
                                     <div class="product-image">
                                         <div class="product-image--holder">
                                             <a href="product-details.html">
-                                                <img src="{{ asset('frontend_assets') }}/img/products/prod-11-1.jpg" alt="Product Image"
-                                                    class="primary-image">
+                                                <img src="{{ asset('frontend_assets') }}/img/products/prod-11-1.jpg"
+                                                    alt="Product Image" class="primary-image">
                                             </a>
                                         </div>
                                         <span class="product-badge hot">hot</span>
@@ -1086,11 +1093,11 @@
                                         <a href="compare.html"><i class="dl-icon-compare2"></i></a>
                                     </div>
                                     <div class="product-extra mb--30 mb-md--20">
-                                        <a href="#" class="font-size-12"><i
-                                                class="fa fa-map-marker"></i>Find store near
+                                        <a href="#" class="font-size-12"><i class="fa fa-map-marker"></i>Find
+                                            store near
                                             you</a>
-                                        <a href="#" class="font-size-12"><i
-                                                class="fa fa-exchange"></i>Delivery and
+                                        <a href="#" class="font-size-12"><i class="fa fa-exchange"></i>Delivery
+                                            and
                                             return</a>
                                     </div>
                                     <div
@@ -1167,7 +1174,8 @@
     <script src="{{ asset('frontend_assets') }}/js/revoulation/extensions/revolution.extension.actions.min.js"></script>
     <script src="{{ asset('frontend_assets') }}/js/revoulation/extensions/revolution.extension.carousel.min.js"></script>
     <script src="{{ asset('frontend_assets') }}/js/revoulation/extensions/revolution.extension.kenburn.min.js"></script>
-    <script src="{{ asset('frontend_assets') }}/js/revoulation/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script src="{{ asset('frontend_assets') }}/js/revoulation/extensions/revolution.extension.layeranimation.min.js">
+    </script>
     <script src="{{ asset('frontend_assets') }}/js/revoulation/extensions/revolution.extension.migration.min.js"></script>
     <script src="{{ asset('frontend_assets') }}/js/revoulation/extensions/revolution.extension.navigation.min.js"></script>
     <script src="{{ asset('frontend_assets') }}/js/revoulation/extensions/revolution.extension.parallax.min.js"></script>
