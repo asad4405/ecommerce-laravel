@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -12,6 +13,8 @@ Route::get('/about-us',[FrontendController::class,'about'])->name('about');
 Route::get('/contact-us',[FrontendController::class,'contact'])->name('contact');
 Route::post('/contact/post',[FrontendController::class,'contact_post'])->name('contact.post');
 
+// category /
+Route::resource('/category',CategoryController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

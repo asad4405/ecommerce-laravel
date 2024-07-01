@@ -266,7 +266,7 @@
             <div class="container-fluid">
                 <div class="row mb--40 mb-md--30">
                     <div class="col-12">
-                        <h2 class="heading-secondary text-center">Trending</h2>
+                        <h2 class="heading-secondary text-center">Newest Product</h2>
                     </div>
                 </div>
                 <div class="row">
