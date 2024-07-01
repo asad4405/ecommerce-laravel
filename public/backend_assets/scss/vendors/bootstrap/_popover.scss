@@ -35,7 +35,7 @@
 }
 
 .bs-popover-top {
-  >.popover-arrow {
+  > .popover-arrow {
     bottom: subtract(-$popover-arrow-height, $popover-border-width);
 
     &::before {
@@ -53,7 +53,7 @@
 }
 
 .bs-popover-end {
-  >.popover-arrow {
+  > .popover-arrow {
     left: subtract(-$popover-arrow-height, $popover-border-width);
     width: $popover-arrow-height;
     height: $popover-arrow-width;
@@ -73,7 +73,7 @@
 }
 
 .bs-popover-bottom {
-  >.popover-arrow {
+  > .popover-arrow {
     top: subtract(-$popover-arrow-height, $popover-border-width);
 
     &::before {
@@ -103,7 +103,7 @@
 }
 
 .bs-popover-start {
-  >.popover-arrow {
+  > .popover-arrow {
     right: subtract(-$popover-arrow-height, $popover-border-width);
     width: $popover-arrow-height;
     height: $popover-arrow-width;
@@ -126,15 +126,12 @@
   &[data-popper-placement^="top"] {
     @extend .bs-popover-top;
   }
-
   &[data-popper-placement^="right"] {
     @extend .bs-popover-end;
   }
-
   &[data-popper-placement^="bottom"] {
     @extend .bs-popover-bottom;
   }
-
   &[data-popper-placement^="left"] {
     @extend .bs-popover-start;
   }

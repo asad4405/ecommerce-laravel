@@ -65,7 +65,6 @@
     }
   }
 }
-
 // scss-docs-end responsive-breakpoints
 
 // Allow for dropdowns to go bottom up (aka, dropup-menu)
@@ -94,7 +93,6 @@
 
   .dropdown-toggle {
     @include caret(end);
-
     &::after {
       vertical-align: 0;
     }
@@ -112,7 +110,6 @@
 
   .dropdown-toggle {
     @include caret(start);
-
     &::before {
       vertical-align: 0;
     }
@@ -139,14 +136,14 @@
   font-weight: $font-weight-normal;
   color: $dropdown-link-color;
   text-align: inherit; // For `<button>`s
-  text-decoration: if($link-decoration==none, null, none);
+  text-decoration: if($link-decoration == none, null, none);
   white-space: nowrap; // prevent links from randomly breaking onto new lines
   background-color: transparent; // For `<button>`s
   border: 0; // For `<button>`s
 
   // Prevent dropdown overflow if there's no padding
   // See https://github.com/twbs/bootstrap/pull/27703
-  @if $dropdown-padding-y==0 {
+  @if $dropdown-padding-y == 0 {
     &:first-child {
       @include border-top-radius($dropdown-inner-border-radius);
     }
@@ -159,7 +156,7 @@
   &:hover,
   &:focus {
     color: $dropdown-link-hover-color;
-    text-decoration: if($link-hover-decoration==underline, none, null);
+    text-decoration: if($link-hover-decoration == underline, none, null);
     @include gradient-bg($dropdown-link-hover-bg);
   }
 

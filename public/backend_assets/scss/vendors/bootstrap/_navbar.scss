@@ -36,14 +36,13 @@
     justify-content: space-between;
   }
 
-  >.container,
-  >.container-fluid {
+  > .container,
+  > .container-fluid {
     @extend %container-flex-properties;
   }
 
-  @each $breakpoint,
-  $container-max-width in $container-max-widths {
-    >.container#{breakpoint-infix($breakpoint, $container-max-widths)} {
+  @each $breakpoint, $container-max-width in $container-max-widths {
+    > .container#{breakpoint-infix($breakpoint, $container-max-widths)} {
       @extend %container-flex-properties;
     }
   }
@@ -59,12 +58,12 @@
   padding-bottom: $navbar-brand-padding-y;
   margin-right: $navbar-brand-margin-end;
   @include font-size($navbar-brand-font-size);
-  text-decoration: if($link-decoration==none, null, none);
+  text-decoration: if($link-decoration == none, null, none);
   white-space: nowrap;
 
   &:hover,
   &:focus {
-    text-decoration: if($link-hover-decoration==underline, none, null);
+    text-decoration: if($link-hover-decoration == underline, none, null);
   }
 }
 
@@ -194,43 +193,12 @@
         .navbar-toggler {
           display: none;
         }
-
-        .offcanvas-header {
-          display: none;
-        }
-
-        .offcanvas {
-          position: inherit;
-          bottom: 0;
-          z-index: 1000;
-          flex-grow: 1;
-          visibility: visible !important; // stylelint-disable-line declaration-no-important
-          background-color: transparent;
-          border-right: 0;
-          border-left: 0;
-          @include transition(none);
-          transform: none;
-        }
-
-        .offcanvas-top,
-        .offcanvas-bottom {
-          height: auto;
-          border-top: 0;
-          border-bottom: 0;
-        }
-
-        .offcanvas-body {
-          display: flex;
-          flex-grow: 0;
-          padding: 0;
-          overflow-y: visible;
-        }
       }
     }
   }
 }
-
 // scss-docs-end navbar-expand-loop
+
 
 // Navbar themes
 //
@@ -261,7 +229,7 @@
       }
     }
 
-    .show>.nav-link,
+    .show > .nav-link,
     .nav-link.active {
       color: $navbar-light-active-color;
     }
@@ -281,7 +249,7 @@
 
     a,
     a:hover,
-    a:focus {
+    a:focus  {
       color: $navbar-light-active-color;
     }
   }
@@ -312,7 +280,7 @@
       }
     }
 
-    .show>.nav-link,
+    .show > .nav-link,
     .nav-link.active {
       color: $navbar-dark-active-color;
     }
@@ -329,7 +297,6 @@
 
   .navbar-text {
     color: $navbar-dark-color;
-
     a,
     a:hover,
     a:focus {

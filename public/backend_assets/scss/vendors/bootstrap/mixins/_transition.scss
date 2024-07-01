@@ -14,7 +14,7 @@
 
   @if $enable-transitions {
     @if nth($transition, 1) != null {
-      transition: all 0.3s ease-in-out;
+      transition: $transition;
     }
 
     @if $enable-reduced-motion and nth($transition, 1) != null and nth($transition, 1) != none {

@@ -69,14 +69,17 @@
                 <div class="header-logo-wrapper p-0">
                     <div class="logo-wrapper">
                         <a href="index.html">
-                            <img class="img-fluid main-logo" src="{{ asset('backend_assets') }}/images/logo/1.png" alt="logo">
-                            <img class="img-fluid white-logo" src="{{ asset('backend_assets') }}/images/logo/1-white.png" alt="logo">
+                            <img class="img-fluid main-logo" src="{{ asset('backend_assets') }}/images/logo/1.png"
+                                alt="logo">
+                            <img class="img-fluid white-logo"
+                                src="{{ asset('backend_assets') }}/images/logo/1-white.png" alt="logo">
                         </a>
                     </div>
                     <div class="toggle-sidebar">
                         <i class="status_toggle middle sidebar-toggle" data-feather="align-center"></i>
                         <a href="index.html">
-                            <img src="{{ asset('backend_assets') }}/images/logo/1.png" class="img-fluid" alt="">
+                            <img src="{{ asset('backend_assets') }}/images/logo/1.png" class="img-fluid"
+                                alt="">
                         </a>
                     </div>
                 </div>
@@ -150,9 +153,10 @@
                         </li>
                         <li class="profile-nav onhover-dropdown pe-0 me-0">
                             <div class="media profile-media">
-                                <img class="user-profile rounded-circle" src="{{ asset('backend_assets') }}/images/users/4.jpg" alt="">
+                                <img class="user-profile rounded-circle"
+                                    src="{{ asset('backend_assets') }}/images/users/4.jpg" alt="">
                                 <div class="user-name-hide media-body">
-                                    <span>Emay Walter</span>
+                                    <span>{{ auth()->user()->name }}</span>
                                     <p class="mb-0 font-roboto">Admin<i class="middle ri-arrow-down-s-line"></i></p>
                                 </div>
                             </div>
@@ -176,11 +180,22 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+
+                                        <a data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                            href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                            <i data-feather="log-out"></i>
+                                            <span>Log out</span>
+                                        </a>
+                                    </form>
+                                    {{-- <a data-bs-toggle="modal" data-bs-target="#staticBackdrop"
                                         href="javascript:void(0)">
                                         <i data-feather="log-out"></i>
                                         <span>Log out</span>
-                                    </a>
+                                    </a> --}}
                                 </li>
                             </ul>
                         </li>
@@ -198,7 +213,8 @@
                 <div>
                     <div class="logo-wrapper logo-wrapper-center">
                         <a href="index.html" data-bs-original-title="" title="">
-                            <img class="img-fluid for-white" src="{{ asset('backend_assets') }}/images/logo/full-white.png" alt="logo">
+                            <img class="img-fluid for-white"
+                                src="{{ asset('backend_assets') }}/images/logo/full-white.png" alt="logo">
                         </a>
                         <div class="back-btn">
                             <i class="fa fa-angle-left"></i>
@@ -209,9 +225,10 @@
                     </div>
                     <div class="logo-icon-wrapper">
                         <a href="index.html">
-                            <img class="img-fluid main-logo main-white" src="{{ asset('backend_assets') }}/images/logo/logo.png" alt="logo">
-                            <img class="img-fluid main-logo main-dark" src="{{ asset('backend_assets') }}/images/logo/logo-white.png"
-                                alt="logo">
+                            <img class="img-fluid main-logo main-white"
+                                src="{{ asset('backend_assets') }}/images/logo/logo.png" alt="logo">
+                            <img class="img-fluid main-logo main-dark"
+                                src="{{ asset('backend_assets') }}/images/logo/logo-white.png" alt="logo">
                         </a>
                     </div>
                     <nav class="sidebar-main">

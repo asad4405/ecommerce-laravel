@@ -1,71 +1,215 @@
 /**=====================
-     typography scss
+    Typography css start
 ==========================**/
 body {
+    font-size: $body-font-size;
+    overflow-x: hidden;
     font-family: $public-sans;
-    position: relative;
-    font-size: 14px;
-    color: $title-color;
-    margin: 0;
-    background-color: $white;
-    transition: all 0.3s ease-in-out;
-    padding-right: 0 !important;
+    color: $theme-body-font-color;
 
     ::selection {
-        color: $white;
-        background-color: var(--theme-color);
-    }
-}
-
-.bg-overlay {
-    @include pseudowh($width: 100vw, $height: 100vh);
-    background-color: $title-color;
-    position: fixed;
-    z-index: 9;
-    top: 0;
-    opacity: 0;
-    visibility: hidden;
-    transition: 0.5s;
-
-    &.show {
-        visibility: visible;
-        opacity: 0.5;
+        background-color: transparent;
+        color: var(--theme-color);
     }
 }
 
 ul {
-    padding-left: 0;
+    padding-left: $ul-padding-left;
+    list-style-type: none;
     margin-bottom: 0;
 }
 
-li {
-    display: inline-block;
-    font-size: 14px;
-}
-
-p {
-    font-size: 14px;
-    line-height: 18px;
+* a {
+    color: var(--theme-color);
+    text-decoration: none;
+    letter-spacing: 1px;
 }
 
 a {
-    color: var(--theme-color);
-    transition: 0.5s ease;
-    text-decoration: none;
-
     &:hover {
         text-decoration: none;
-        transition: 0.5s ease;
+        color: var(--theme-color);
     }
 
-    &:focus {
-        outline: none;
+    &[class*="badge-"] {
+        &:hover {
+            color: $white;
+        }
     }
 }
 
-button {
+.btn {
+    font-size: 14px;
+}
+
+*.btn:focus {
+    box-shadow: $btn-focus-box-shadow !important;
+}
+
+p {
+    font-size: $paragraph-font-size;
+    line-height: $paragraph-line-height;
+    letter-spacing: $paragraph-letter-spacing;
+}
+
+.form-control {
+    padding: 8px 20px;
+}
+
+.form-select {
     &:focus {
-        outline: none;
+        box-shadow: none;
+        border-color: #ced4da;
+    }
+}
+
+code {
+    color: $code-tag-color !important;
+    background-color: $code-tag-bg-color;
+    padding: $code-tag-padding;
+    margin: $code-tag-margin;
+    border-radius: $code-tag-border-radious;
+}
+
+.media {
+    display: flex;
+    align-items: flex-start;
+
+    .media-body {
+        flex: 1;
+    }
+}
+
+blockquote {
+    border-left: $blockquote-border;
+    padding: $blockquote-padding;
+}
+
+.figure {
+    &.text-center {
+        blockquote {
+            border: none !important;
+        }
+    }
+
+    &.text-end {
+        blockquote {
+            border-left: none !important;
+            border-right: $blockquote-border;
+        }
+    }
+}
+
+.row {
+    > div {
+        position: relative;
+    }
+}
+
+:focus {
+    outline-color: $all-focus-outline-color;
+}
+
+.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+svg {
+    vertical-align: baseline;
+}
+
+input {
+    &:focus {
+        outline-color: $transparent-color;
+    }
+}
+
+label {
+    margin-bottom: 0.5rem;
+}
+
+.media-widgets {
+    .media-body {
+        margin-bottom: 30px;
+    }
+}
+
+.typography {
+    h1,
+    .h1,
+    h2,
+    .h2,
+    h3,
+    .h3,
+    h4,
+    .h4,
+    h5,
+    .h5,
+    h6,
+    .h6 {
+        margin: 20px 0;
+        margin-top: 0;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    small {
+        padding-left: $small-tag-padding;
+        color: $small-tag-color;
+    }
+}
+
+pre {
+    background-color: $pre-tag-bg-color;
+    padding: $pre-tag-padding;
+}
+
+.owl-theme {
+    .owl-dots {
+        .owl-dot {
+            span {
+                background: lighten($primary-color, 20%);
+            }
+
+            &.active,
+            &:hover {
+                span {
+                    background: var(--theme-color);
+                }
+            }
+        }
+    }
+
+    .owl-nav {
+        &.disabled {
+            & + .owl-dots {
+                margin-bottom: -10px;
+                margin-top: 25px;
+            }
+        }
+    }
+}
+
+.click2edit {
+    & ~ .note-editor {
+        &.note-frame {
+            margin-bottom: 30px;
+        }
+    }
+}
+
+.note-editor {
+    &.note-frame {
+        border-color: $light-color;
+    }
+}
+
+.note-editor {
+    &.note-frame {
+        border-color: $light-color;
     }
 }
 
@@ -75,16 +219,182 @@ button {
     }
 }
 
-:focus {
-    outline: none;
+// modal page
+.modal {
+    .modal-body {
+        .card {
+            box-shadow: none !important;
+        }
+    }
 }
 
-.form-control {
-    background-color: $white;
+.modal-dialog {
+    .modal-content {
+        .modal-body {
+            p {
+                a {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+}
 
-    &:focus {
+.alert-theme {
+    button {
+        top: 25px !important;
+        right: 20px !important;
+        color: var(--theme-color);
+    }
+
+    [data-notify="title"] {
+        display: none;
+    }
+
+    span {
+        + span {
+            + span {
+                background-color: $white;
+                color: var(--theme-color);
+                border-radius: 4px;
+                box-shadow: 0 2px 14px -3px rgba($black, 0.2);
+            }
+        }
+    }
+
+    i {
+        padding: 20px;
+    }
+
+    .progress {
+        margin-top: -2px !important;
+        @include pseudowh($width: 100%, $height: 2px);
+
+        .progress-bar {
+            background-color: var(--theme-color);
+        }
+    }
+}
+
+.alert-copy {
+    border: 1px solid var(--theme-color);
+    line-height: 1;
+    display: inline-block;
+    width: 300px;
+    color: $white;
+    background-color: var(--theme-color);
+
+    .close {
         box-shadow: none;
-        border-color: var(--theme-color);
+        color: $white;
+        line-height: 1.4;
+        font-weight: 100;
+
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+.ace-editor {
+    @include pseudowh($width: 100%, $height: 400px);
+}
+
+.editor-toolbar {
+    width: 100% !important;
+
+    &.fullscreen {
+        z-index: 100;
+    }
+}
+
+.CodeMirror {
+    top: 0 !important;
+}
+
+.CodeMirror-fullscreen {
+    top: 50px !important;
+}
+
+// rangeslider
+.irs-from,
+.irs-to,
+.irs-single {
+    background: var(--theme-color);
+
+    &:after {
+        border-top-color: var(--theme-color);
+    }
+}
+
+.irs-line-mid,
+.irs-line-left,
+.irs-line-right,
+.irs-bar,
+.irs-bar-edge {
+    background-color: var(--theme-color);
+}
+
+.swal-button {
+    background-color: var(--theme-color);
+
+    &:active {
+        background-color: darken($primary-color, 5%);
+    }
+}
+
+.swal-button--cancel {
+    background-color: $silver-light !important;
+}
+
+.clipboaard-container {
+    h6 {
+        line-height: 1.6;
+        font-size: $paragraph-font-size;
+    }
+}
+
+fieldset {
+    .bootstrap-touchspin-postfix,
+    .bootstrap-touchspin-prefix {
+        border-radius: 0;
+        padding: 0.4rem 0.75rem;
+    }
+
+    .input-group-lg {
+        .touchspin {
+            height: 50px;
+        }
+    }
+}
+
+.f1 {
+    .f1-steps {
+        .f1-step {
+            .f1-step-icon {
+                padding: 12px;
+            }
+        }
+    }
+}
+
+.form-inline {
+    .form-group {
+        display: flex;
+    }
+}
+
+.input-group-text {
+    i {
+        line-height: 1.5;
+    }
+}
+
+.animated-modal {
+    .form-select {
+        display: inline-block;
+        width: auto;
+        vertical-align: middle;
     }
 }
 
@@ -141,5 +451,9 @@ span {
 }
 
 .theme-bg-color {
-    background: var(--theme-color) !important;
+    background-color: var(--theme-color);
 }
+
+/**=====================
+    Typography css Ends
+==========================**/

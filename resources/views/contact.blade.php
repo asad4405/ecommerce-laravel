@@ -28,26 +28,41 @@
                         <p class="text-center mb--40 mb-sm--30">Praesent sed ex vel mauris eleifend mollis.</p>
 
                         <!-- Contact Form Start here -->
-                        <form class="form" action="mail.php" id="contact-form">
+                        @if (session('contact-success'))
+                            <div class="alert alert-success">{{ session('contact-success') }}</div>
+                        @endif
+                        <form action="{{ route('contact.post') }}" method="POST">
+                            @csrf
                             <div class="form__group mb--20">
-                                <input type="text" id="contact_name" name="contact_name"
-                                    class="form__input form__input--2" placeholder="Your name*">
+                                <input type="text" name="name" class="form__input form__input--2"
+                                    placeholder="Your name*">
+                                @error('name')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="form__group mb--20">
-                                <input type="email" id="contact_email" name="contact_email"
-                                    class="form__input form__input--2" placeholder="Email Address*">
+                                <input type="email" name="email" class="form__input form__input--2"
+                                    placeholder="Email Address* ">
+                                @error('email')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="form__group mb--20">
-                                <input type="text" id="contact_phone" name="contact_phone"
-                                    class="form__input form__input--2" placeholder="Your Phone*">
+                                <input type="text" name="phone_number" class="form__input form__input--2"
+                                    placeholder="Your Phone Number*">
+                                @error('phone_number')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="form__group mb--20">
-                                <textarea class="form__input form__input--textarea" id="contact_message" name="contact_message" placeholder="Message*"></textarea>
+                                <textarea class="form__input form__input--textarea" name="message" placeholder="Message*"></textarea>
+                                @error('message')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="form__group">
-                                <input type="submit" value="Send" class="btn btn-submit btn-style-1">
+                                <button type="submit" class="btn btn-submit btn-style-1">Send</button>
                             </div>
-                            <div class="form__output"></div>
                         </form>
                         <!-- Contact Form End here -->
                     </div>

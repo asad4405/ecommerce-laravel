@@ -36,7 +36,6 @@
     @include transition($modal-transition);
     transform: $modal-fade-transform;
   }
-
   .modal.show & {
     transform: $modal-show-transform;
   }
@@ -86,7 +85,17 @@
 
 // Modal background
 .modal-backdrop {
-  @include overlay-backdrop($zindex-modal-backdrop, $modal-backdrop-bg, $modal-backdrop-opacity);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: $zindex-modal-backdrop;
+  width: 100vw;
+  height: 100vh;
+  background-color: $modal-backdrop-bg;
+
+  // Fade for backdrop
+  &.fade { opacity: 0; }
+  &.show { opacity: $modal-backdrop-opacity; }
 }
 
 // Modal header
@@ -136,14 +145,13 @@
   // Place margin between footer elements
   // This solution is far from ideal because of the universal selector usage,
   // but is needed to fix https://github.com/twbs/bootstrap/issues/24800
-  >* {
+  > * {
     margin: $modal-footer-margin-between * .5;
   }
 }
 
 // Scale up the modal
 @include media-breakpoint-up(sm) {
-
   // Automatically set modal's width for larger viewports
   .modal-dialog {
     max-width: $modal-md;
@@ -162,13 +170,10 @@
     @include box-shadow($modal-content-box-shadow-sm-up);
   }
 
-  .modal-sm {
-    max-width: $modal-sm;
-  }
+  .modal-sm { max-width: $modal-sm; }
 }
 
 @include media-breakpoint-up(lg) {
-
   .modal-lg,
   .modal-xl {
     max-width: $modal-lg;
@@ -176,15 +181,13 @@
 }
 
 @include media-breakpoint-up(xl) {
-  .modal-xl {
-    max-width: $modal-xl;
-  }
+  .modal-xl { max-width: $modal-xl; }
 }
 
 // scss-docs-start modal-fullscreen-loop
 @each $breakpoint in map-keys($grid-breakpoints) {
   $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
-  $postfix: if($infix !="", $infix + "-down", "");
+  $postfix: if($infix != "", $infix + "-down", "");
 
   @include media-breakpoint-down($breakpoint) {
     .modal-fullscreen#{$postfix} {
@@ -213,5 +216,4 @@
     }
   }
 }
-
 // scss-docs-end modal-fullscreen-loop

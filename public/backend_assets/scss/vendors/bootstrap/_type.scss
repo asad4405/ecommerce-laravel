@@ -32,8 +32,7 @@
 }
 
 // Type display classes
-@each $display,
-$font-size in $display-font-sizes {
+@each $display, $font-size in $display-font-sizes {
   .display-#{$display} {
     @include font-size($font-size);
     font-weight: $display-font-weight;
@@ -64,7 +63,6 @@ $font-size in $display-font-sizes {
 .list-inline {
   @include list-unstyled();
 }
-
 .list-inline-item {
   display: inline-block;
 
